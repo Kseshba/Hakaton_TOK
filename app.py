@@ -52,12 +52,13 @@ def make_interactive_toc(doc, link_mas, rect_mas, pages_mas):
             rect = fitz.Rect(50, 50, 100, 100)  # Определение координат области
             current_page.insert_link({
                 "kind": 5,
-                "from": rect,  # Здесь должен быть объект Rect
+                "from": rect_mas[i][j],
                 "page": int(link_mas[i][j]) - 2,
-                "to": int(link_mas[i][j]) - 2,
+                "to": str(int(link_mas[i][j]) - 2),  # Преобразовать в строку
                 "file": "",
                 "xref": ""
             })
+
     return doc
 
 
